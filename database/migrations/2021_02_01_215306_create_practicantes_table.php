@@ -22,20 +22,16 @@ class CreatePracticantesTable extends Migration
             $table->bigInteger('nivel_educacional_id')->unsigned()->nullable();
             $table->bigInteger('region_id')->unsigned()->nullable();
             $table->bigInteger('tipo_practica_id')->unsigned()->nullable();
-            $table->bigInteger('tipo_usuario_id')->unsigned()->nullable();
+            $table->bigInteger('usuario_id')->unsigned()->nullable();
 
             $table->string('nombre_completo', 200)->nullable();
-            $table->string('run', 200)->nullable();
-            $table->string('dv_run', 1)->nullable();
-            $table->string('email', 200)->nullable();
+            $table->string('run', 200)->nullable()->unique();
+            $table->string('email', 200)->nullable()->unique();
             $table->string('telefono', 200)->nullable();
-            $table->integer('cantidad_horas')->unsigned()->nullable()->default(1);
-            $table->integer('cantidad_meses')->unsigned()->nullable()->default(1);
+            $table->integer('cantidad_horas')->nullable()->default(1);
+            $table->integer('cantidad_meses')->nullable()->default(1);
             $table->boolean('equipo_computacional')->nullable()->default(false);
             $table->boolean('internet_fijo')->nullable()->default(false);
-            $table->string('nombre_usuario', 200)->nullable();
-            $table->string('contrasena', 200)->nullable();
-            $table->boolean('usuario_activo')->nullable()->default(false);
 
             $table->timestamps();
         });
